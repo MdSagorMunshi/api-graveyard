@@ -1,107 +1,137 @@
 {
-  "total": 20,
+  "total": 219,
   "by_cause": {
     "acquired": 2,
-    "deprecated": 1,
+    "deprecated": 144,
     "paywalled": 11,
     "rate_limited": 2,
-    "shutdown": 4
+    "shutdown": 60
   },
   "by_category": {
-    "auth": 1,
+    "analytics": 8,
+    "auth": 11,
     "database": 3,
-    "email": 2,
+    "email": 5,
     "hosting": 2,
     "maps": 1,
-    "media": 2,
-    "messaging": 2,
-    "other": 4,
-    "social": 2,
-    "translation": 1
+    "media": 5,
+    "messaging": 9,
+    "monitoring": 4,
+    "other": 137,
+    "payment": 3,
+    "search": 10,
+    "social": 14,
+    "storage": 3,
+    "translation": 4
   },
   "by_year": {
     "2008": 0,
     "2009": 0,
     "2010": 0,
-    "2011": 1,
-    "2012": 0,
-    "2013": 0,
+    "2011": 12,
+    "2012": 3,
+    "2013": 2,
     "2014": 0,
-    "2015": 0,
-    "2016": 0,
+    "2015": 8,
+    "2016": 6,
     "2017": 1,
     "2018": 0,
-    "2019": 3,
-    "2020": 3,
-    "2021": 0,
-    "2022": 1,
-    "2023": 8,
-    "2024": 3,
-    "2025": 0,
-    "2026": 0
+    "2019": 10,
+    "2020": 12,
+    "2021": 13,
+    "2022": 29,
+    "2023": 26,
+    "2024": 26,
+    "2025": 60,
+    "2026": 11
   },
   "by_company": {
+    "Apple": 4,
     "Atlassian": 1,
     "Auth0": 1,
+    "AWS": 3,
+    "Booking.com": 2,
     "CircleCI": 1,
+    "Cloudflare": 1,
     "Cloudinary": 1,
+    "Cybersource": 1,
     "Facebook": 1,
-    "GitHub": 1,
-    "Google": 4,
+    "GitHub": 5,
+    "Google": 47,
+    "Google Cloud": 1,
     "Heroku": 1,
-    "Mailchimp": 1,
+    "HubSpot": 1,
+    "Mailchimp": 2,
     "Mapbox": 1,
     "Mashape": 1,
+    "Meta": 7,
+    "Microsoft": 2,
     "mLab": 1,
     "Netlify": 1,
+    "OpenAI": 4,
+    "Oracle": 1,
+    "Pipedrive": 1,
     "PubNub": 1,
     "Pusher": 1,
+    "Salesforce": 25,
     "SendGrid": 1,
-    "Twitter": 1
+    "Shopify": 76,
+    "Slack": 1,
+    "Snapchat": 2,
+    "Stripe": 4,
+    "TikTok": 1,
+    "Twilio": 1,
+    "Twitter": 1,
+    "Typeform": 1,
+    "Workato": 1,
+    "YouTube": 2,
+    "Zapier": 3,
+    "Zendesk": 5,
+    "Zoho": 1
   },
   "top_killers": [
     {
+      "company": "Shopify",
+      "count": 76
+    },
+    {
       "company": "Google",
-      "count": 4
+      "count": 47
     },
     {
-      "company": "Atlassian",
-      "count": 1
+      "company": "Salesforce",
+      "count": 25
     },
     {
-      "company": "Auth0",
-      "count": 1
-    },
-    {
-      "company": "CircleCI",
-      "count": 1
-    },
-    {
-      "company": "Cloudinary",
-      "count": 1
-    },
-    {
-      "company": "Facebook",
-      "count": 1
+      "company": "Meta",
+      "count": 7
     },
     {
       "company": "GitHub",
-      "count": 1
+      "count": 5
     },
     {
-      "company": "Heroku",
-      "count": 1
+      "company": "Zendesk",
+      "count": 5
     },
     {
-      "company": "Mailchimp",
-      "count": 1
+      "company": "Apple",
+      "count": 4
     },
     {
-      "company": "Mapbox",
-      "count": 1
+      "company": "OpenAI",
+      "count": 4
+    },
+    {
+      "company": "Stripe",
+      "count": 4
+    },
+    {
+      "company": "AWS",
+      "count": 3
     }
   ],
-  "most_recent_death": "2023-11-01",
-  "most_deadly_year": "2023",
-  "generated_at": "2026-04-10T18:14:13.777Z"
+  "most_recent_death": "2026-04-01",
+  "most_deadly_year": "2025",
+  "generated_at": "2026-04-10T18:45:29.060Z"
 }
