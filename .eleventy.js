@@ -160,10 +160,10 @@ module.exports = function configure(eleventyConfig) {
     tagline: "In loving memory of APIs we once called",
     subtitle:
       "A community-maintained obituary desk for APIs, SDKs, and free tiers that were buried by shutdowns, acquisitions, price sheets, or plain neglect.",
-    baseUrl: "https://rynex.github.io/api-graveyard",
-    repoUrl: "https://github.com/rynex/api-graveyard",
-    issueUrl: "https://github.com/rynex/api-graveyard/issues/new?template=new-death.yml",
-    contributingUrl: "https://github.com/rynex/api-graveyard/blob/main/CONTRIBUTING.md",
+    baseUrl: "https://mdsagormunshi.github.io/api-graveyard",
+    repoUrl: "https://github.com/MdSagorMunshi/api-graveyard",
+    issueUrl: "https://github.com/MdSagorMunshi/api-graveyard/issues/new?template=new-death.yml",
+    contributingUrl: "https://github.com/MdSagorMunshi/api-graveyard/blob/main/CONTRIBUTING.md",
     causeOptions,
     categoryOptions
   });

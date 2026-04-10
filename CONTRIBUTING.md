@@ -4,7 +4,7 @@ Every contribution matters because every dead API deserves a clean record. Devel
 
 ## Two contribution paths
 
-If you do not want to write JSON by hand, use the [issue submission form](https://github.com/rynex/api-graveyard/issues/new?template=new-death.yml). That path is slower, but it is friendlier to people who only need to report the facts.
+If you do not want to write JSON by hand, use the [issue submission form](https://github.com/MdSagorMunshi/api-graveyard/issues/new?template=new-death.yml). That path is slower, but it is friendlier to people who only need to report the facts.
 
 If you are comfortable editing structured data, open a direct pull request against [`data/entries.json`](data/entries.json). Maintainers can usually merge those faster because the proposed shape is already visible and testable.
 
@@ -85,7 +85,7 @@ Read [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Accuracy comes first, but respect
 
 Current largest contributors by accepted entries:
 
-1. `rynex` — 20 entries
+1. `MdSagorMunshi` — 219 entries
 2. No recorded burials yet
 3. No recorded burials yet
 4. No recorded burials yet

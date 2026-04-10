@@ -31,13 +31,13 @@ api-graveyard exists because broken bookmarks and vague pricing pages are not a 
 
 ## How to submit a death
 
-1. Path 1: open a [GitHub Issue submission form](https://github.com/rynex/api-graveyard/issues/new?template=new-death.yml) if you want the easiest route and do not want to touch JSON directly.
+1. Path 1: open a [GitHub Issue submission form](https://github.com/MdSagorMunshi/api-graveyard/issues/new?template=new-death.yml) if you want the easiest route and do not want to touch JSON directly.
 2. Path 2: open a pull request after editing [`data/entries.json`](data/entries.json) if you are comfortable with the schema and want the fastest maintainer path.
 
 ## Running locally
 
 ```bash
-git clone https://github.com/rynex/api-graveyard.git
+git clone https://github.com/MdSagorMunshi/api-graveyard.git
 cd api-graveyard
 npm install
 npm run dev
