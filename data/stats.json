@@ -1,0 +1,107 @@
+{
+  "total": 20,
+  "by_cause": {
+    "acquired": 2,
+    "deprecated": 1,
+    "paywalled": 11,
+    "rate_limited": 2,
+    "shutdown": 4
+  },
+  "by_category": {
+    "auth": 1,
+    "database": 3,
+    "email": 2,
+    "hosting": 2,
+    "maps": 1,
+    "media": 2,
+    "messaging": 2,
+    "other": 4,
+    "social": 2,
+    "translation": 1
+  },
+  "by_year": {
+    "2008": 0,
+    "2009": 0,
+    "2010": 0,
+    "2011": 1,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": 1,
+    "2018": 0,
+    "2019": 3,
+    "2020": 3,
+    "2021": 0,
+    "2022": 1,
+    "2023": 8,
+    "2024": 3,
+    "2025": 0,
+    "2026": 0
+  },
+  "by_company": {
+    "Atlassian": 1,
+    "Auth0": 1,
+    "CircleCI": 1,
+    "Cloudinary": 1,
+    "Facebook": 1,
+    "GitHub": 1,
+    "Google": 4,
+    "Heroku": 1,
+    "Mailchimp": 1,
+    "Mapbox": 1,
+    "Mashape": 1,
+    "mLab": 1,
+    "Netlify": 1,
+    "PubNub": 1,
+    "Pusher": 1,
+    "SendGrid": 1,
+    "Twitter": 1
+  },
+  "top_killers": [
+    {
+      "company": "Google",
+      "count": 4
+    },
+    {
+      "company": "Atlassian",
+      "count": 1
+    },
+    {
+      "company": "Auth0",
+      "count": 1
+    },
+    {
+      "company": "CircleCI",
+      "count": 1
+    },
+    {
+      "company": "Cloudinary",
+      "count": 1
+    },
+    {
+      "company": "Facebook",
+      "count": 1
+    },
+    {
+      "company": "GitHub",
+      "count": 1
+    },
+    {
+      "company": "Heroku",
+      "count": 1
+    },
+    {
+      "company": "Mailchimp",
+      "count": 1
+    },
+    {
+      "company": "Mapbox",
+      "count": 1
+    }
+  ],
+  "most_recent_death": "2023-11-01",
+  "most_deadly_year": "2023",
+  "generated_at": "2026-04-10T17:35:56.817Z"
+}

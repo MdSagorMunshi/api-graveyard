@@ -1,0 +1,34 @@
+name: Dispute entry
+description: Report a wrong date, a revived API, or another factual correction.
+title: "[Dispute]: "
+labels:
+  - dispute
+body:
+  - type: input
+    id: entry_id
+    attributes:
+      label: Entry ID
+      placeholder: heroku-free-dynos
+    validations:
+      required: true
+  - type: textarea
+    id: what_is_incorrect
+    attributes:
+      label: What is incorrect
+      placeholder: The date is wrong, the service came back, or the cause of death is misclassified.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source proving the correction
+      placeholder: https://example.com/correction
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_value
+    attributes:
+      label: Proposed corrected value
+      placeholder: date_died should be 2023-03-29 and cause_of_death should be paywalled.
+    validations:
+      required: true

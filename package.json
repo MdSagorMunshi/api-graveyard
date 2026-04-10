@@ -1,0 +1,21 @@
+{
+  "name": "api-graveyard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "In loving memory of APIs we once called.",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "npx @11ty/eleventy --input=site",
+    "dev": "npx @11ty/eleventy --input=site --serve --port=8080",
+    "validate": "node scripts/validate.js",
+    "generate-stats": "node scripts/generate-stats.js",
+    "new-entry": "node scripts/new-entry.js"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@inquirer/prompts": "^7.3.2",
+    "entities": "^2.2.0"
+  }
+}

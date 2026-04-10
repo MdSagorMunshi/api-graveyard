@@ -1,0 +1,43 @@
+name: Refresh Stats
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate stats artifacts
+        run: npm run generate-stats
+
+      - name: Commit refreshed stats if needed
+        shell: bash
+        run: |
+          if git diff --quiet -- data/stats.json README.md; then
+            echo "No stats changes detected."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/stats.json README.md
+          git commit -m "chore: refresh graveyard stats"
+          git push

@@ -1,0 +1,14 @@
+node_modules/
+_site/
+.11tycache/
+.cache/
+.codex
+.DS_Store
+.env
+.env.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun.lock
+bun.lockb

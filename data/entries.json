@@ -1,0 +1,682 @@
+[
+  {
+    "id": "auth0-free-tenant-limits",
+    "name": "Auth0 Free Tenant Limits",
+    "category": "auth",
+    "cause_of_death": "paywalled",
+    "date_died": "2023-11-01",
+    "eulogy": "You had once let tiny products impersonate serious companies with suspicious confidence. After Okta redrew the fences, your old generosity was remembered the way people remember rent control.",
+    "source_url": "https://auth0.com/pricing",
+    "alternatives": [
+      {
+        "name": "Clerk",
+        "url": "https://clerk.com/",
+        "free": true
+      },
+      {
+        "name": "Supabase Auth",
+        "url": "https://supabase.com/auth",
+        "free": true
+      },
+      {
+        "name": "Keycloak",
+        "url": "https://www.keycloak.org/",
+        "free": true
+      }
+    ],
+    "date_born": "2013",
+    "company": "Auth0",
+    "description": "You had provided developer-friendly identity infrastructure and then pushed the older free-plan ceilings behind paid walls.",
+    "tags": ["okta", "identity", "oauth", "free-tier", "maus"],
+    "archived_docs_url": "https://web.archive.org/web/20211001000000/https://auth0.com/pricing",
+    "rip_message": "I used to prototype logins here before finance joined the architecture review.",
+    "added_by": "rynex",
+    "added_date": "2026-04-10"
+  },
+  {
+    "id": "twitter-api-v1-free-tier",
+    "name": "Twitter API v1 Free Tier",
+    "category": "social",
+    "cause_of_death": "paywalled",
+    "date_died": "2023-02-09",
+    "eulogy": "You had powered bots, scrapers, dashboards, and tiny art projects with a shrug. Then the invoice arrived before the funeral flowers did.",
+    "source_url": "https://www.theverge.com/2023/2/2/23581532/twitter-free-api-access-developer-api",
+    "alternatives": [
+      {
+        "name": "Mastodon API",
+        "url": "https://docs.joinmastodon.org/api/",
+        "free": true
+      },
+      {
+        "name": "Bluesky API",
+        "url": "https://docs.bsky.app/",
+        "free": true
+      },
+      {
+        "name": "Reddit API",
+        "url": "https://www.reddit.com/dev/api/",
+        "free": false
+      }
+    ],
+    "date_born": "2011",
+    "company": "Twitter",
+    "description": "You had offered low-friction access to tweets and social graphs before paid tiers abruptly replaced the old free path.",
+    "tags": ["twitter", "social", "bot", "automation", "free-tier"],
+    "archived_docs_url": "https://web.archive.org/web/20230101000000/https://developer.twitter.com/en/docs/twitter-api",
+    "rip_message": "One overnight price change killed more side projects than any bug I ever shipped.",
+    "added_by": "rynex",
+    "added_date": "2026-04-09"
+  },
+  {
+    "id": "netlify-100gb-free-bandwidth",
+    "name": "Netlify 100GB Free Bandwidth",
+    "category": "hosting",
+    "cause_of_death": "paywalled",
+    "date_died": "2023",
+    "eulogy": "You had made static hosting feel improbably lavish for hobby projects with accidental popularity. Then traffic became a billable personality flaw.",
+    "source_url": "https://www.netlify.com/pricing/",
+    "alternatives": [
+      {
+        "name": "Cloudflare Pages",
+        "url": "https://pages.cloudflare.com/",
+        "free": true
+      },
+      {
+        "name": "GitHub Pages",
+        "url": "https://pages.github.com/",
+        "free": true
+      },
+      {
+        "name": "Vercel",
+        "url": "https://vercel.com/pricing",
+        "free": true
+      }
+    ],
+    "date_born": "2015",
+    "company": "Netlify",
+    "description": "You had hosted frontends with generous free transfer before the older bandwidth cushion was folded into stricter usage pricing.",
+    "tags": ["static-site", "hosting", "jamstack", "bandwidth", "free-tier"],
+    "archived_docs_url": "https://web.archive.org/web/20220101000000/https://www.netlify.com/pricing/",
+    "rip_message": "I missed the era when a front page getting popular felt flattering instead of expensive.",
+    "added_by": "rynex",
+    "added_date": "2026-04-08"
+  },
+  {
+    "id": "circleci-free-plan-credits",
+    "name": "CircleCI Free Plan Credits",
+    "category": "other",
+    "cause_of_death": "paywalled",
+    "date_died": "2023",
+    "eulogy": "You had compiled our bad decisions for free and rarely judged them out loud. When the credits shrank, hobby CI started feeling like premium self-loathing.",
+    "source_url": "https://circleci.com/pricing/",
+    "alternatives": [
+      {
+        "name": "GitHub Actions",
+        "url": "https://github.com/features/actions",
+        "free": true
+      },
+      {
+        "name": "GitLab CI/CD",
+        "url": "https://about.gitlab.com/pricing/",
+        "free": true
+      },
+      {
+        "name": "Woodpecker CI",
+        "url": "https://woodpecker-ci.org/",
+        "free": true
+      }
+    ],
+    "date_born": "2011",
+    "company": "CircleCI",
+    "description": "You had offered a roomy starter CI path before the 2023 free-plan changes cut the old breathing room down.",
+    "tags": ["ci", "devops", "builds", "free-tier", "credits"],
+    "archived_docs_url": "https://web.archive.org/web/20230101000000/https://circleci.com/pricing/",
+    "rip_message": "The pipeline still failed, but at least it used to fail on someone else's dime.",
+    "added_by": "rynex",
+    "added_date": "2026-04-07"
+  },
+  {
+    "id": "mailchimp-free-plan-500-contacts",
+    "name": "Mailchimp Free Plan (500 contacts)",
+    "category": "email",
+    "cause_of_death": "paywalled",
+    "date_died": "2023",
+    "eulogy": "You had tolerated tiny mailing lists, amateur launch notes, and an impressive amount of false optimism. Then your free plan went on a diet and everyone else had to count calories.",
+    "source_url": "https://mailchimp.com/pricing/",
+    "alternatives": [
+      {
+        "name": "Brevo",
+        "url": "https://www.brevo.com/pricing/",
+        "free": true
+      },
+      {
+        "name": "MailerLite",
+        "url": "https://www.mailerlite.com/pricing",
+        "free": true
+      },
+      {
+        "name": "Buttondown",
+        "url": "https://buttondown.email/",
+        "free": true
+      }
+    ],
+    "date_born": "2001",
+    "company": "Mailchimp",
+    "description": "You had given small senders a usable email foothold before free-contact and send limits kept tightening into a paid funnel.",
+    "tags": ["email", "newsletter", "marketing", "free-tier", "contacts"],
+    "archived_docs_url": "https://web.archive.org/web/20230101000000/https://mailchimp.com/pricing/",
+    "rip_message": "I learned list hygiene the hard way when the free plan became a museum piece.",
+    "added_by": "rynex",
+    "added_date": "2026-04-06"
+  },
+  {
+    "id": "pusher-channels-sandbox",
+    "name": "Pusher Channels Sandbox",
+    "category": "messaging",
+    "cause_of_death": "paywalled",
+    "date_died": "2023",
+    "eulogy": "You had let live dashboards and side-project chat rooms feel more enterprise than they had any right to. Then the sandbox got smaller and so did our ambition.",
+    "source_url": "https://pusher.com/channels/pricing",
+    "alternatives": [
+      {
+        "name": "Ably",
+        "url": "https://ably.com/pricing",
+        "free": true
+      },
+      {
+        "name": "Socket.IO",
+        "url": "https://socket.io/",
+        "free": true
+      },
+      {
+        "name": "Supabase Realtime",
+        "url": "https://supabase.com/realtime",
+        "free": true
+      }
+    ],
+    "date_born": "2011",
+    "company": "Pusher",
+    "description": "You had handled realtime channels for small apps before the free sandbox was trimmed into a much tighter box.",
+    "tags": ["websocket", "realtime", "messaging", "free-tier", "pubsub"],
+    "archived_docs_url": "https://web.archive.org/web/20220101000000/https://pusher.com/channels/pricing",
+    "rip_message": "Realtime used to be fun until every connection started feeling taxable.",
+    "added_by": "rynex",
+    "added_date": "2026-04-05"
+  },
+  {
+    "id": "pubnub-free-tier-old-quotas",
+    "name": "PubNub Free Tier (Old Quotas)",
+    "category": "messaging",
+    "cause_of_death": "paywalled",
+    "date_died": "2023",
+    "eulogy": "You had moved packets around like a stagehand nobody thanked enough. When the free quotas slimmed down, every prototype suddenly had to justify its existence.",
+    "source_url": "https://www.pubnub.com/pricing/",
+    "alternatives": [
+      {
+        "name": "Ably",
+        "url": "https://ably.com/pricing",
+        "free": true
+      },
+      {
+        "name": "Pusher",
+        "url": "https://pusher.com/channels/pricing",
+        "free": true
+      },
+      {
+        "name": "NATS",
+        "url": "https://nats.io/",
+        "free": true
+      }
+    ],
+    "date_born": "2010",
+    "company": "PubNub",
+    "description": "You had provided realtime pub/sub at hobby scale before the old free headroom narrowed into a more commercial shape.",
+    "tags": ["pubnub", "realtime", "messaging", "websocket", "free-tier"],
+    "archived_docs_url": "https://web.archive.org/web/20221001000000/https://www.pubnub.com/pricing/",
+    "rip_message": "It was hard to mourn the quota until the dashboard said I was already over it.",
+    "added_by": "rynex",
+    "added_date": "2026-04-04"
+  },
+  {
+    "id": "heroku-free-dynos",
+    "name": "Heroku Free Dynos",
+    "category": "hosting",
+    "cause_of_death": "shutdown",
+    "date_died": "2022-11-28",
+    "eulogy": "You had spun up our midnight demos and student hacks without asking for a card or a meeting. After you left, shipping something small suddenly felt a little too adult.",
+    "source_url": "https://blog.heroku.com/next-chapter",
+    "alternatives": [
+      {
+        "name": "Render",
+        "url": "https://render.com/pricing",
+        "free": true
+      },
+      {
+        "name": "Railway",
+        "url": "https://railway.com/pricing",
+        "free": false
+      },
+      {
+        "name": "Fly.io",
+        "url": "https://fly.io/docs/about/pricing/",
+        "free": true
+      }
+    ],
+    "date_born": "2007",
+    "company": "Heroku",
+    "description": "You had provided free app dynos for lightweight deployments before Heroku retired all free plans in late 2022.",
+    "tags": ["heroku", "paas", "free-tier", "dynos", "hosting"],
+    "archived_docs_url": "https://web.archive.org/web/20220101000000/https://devcenter.heroku.com/articles/free-dyno-hours",
+    "rip_message": "You hosted more portfolio sites than most bootcamps ever admitted.",
+    "added_by": "rynex",
+    "added_date": "2026-04-03"
+  },
+  {
+    "id": "stadia",
+    "name": "Stadia",
+    "category": "media",
+    "cause_of_death": "shutdown",
+    "date_died": "2023-01-18",
+    "eulogy": "You had promised cloud gaming with the serene confidence of a cathedral rendering frames in 4K. Then you joined the long Google tradition of proving the joke correct.",
+    "source_url": "https://blog.google/products/stadia/message-on-stadia-streaming-strategy/",
+    "alternatives": [
+      {
+        "name": "GeForce NOW",
+        "url": "https://www.nvidia.com/en-us/geforce-now/memberships/",
+        "free": true
+      },
+      {
+        "name": "Xbox Cloud Gaming",
+        "url": "https://www.xbox.com/en-US/cloud-gaming",
+        "free": false
+      },
+      {
+        "name": "Amazon Luna",
+        "url": "https://luna.amazon.com/",
+        "free": false
+      }
+    ],
+    "date_born": "2019",
+    "company": "Google",
+    "description": "You had streamed games from Google data centers before the service was wound down in January 2023.",
+    "tags": ["cloud-gaming", "streaming", "google", "platform", "shutdown"],
+    "archived_docs_url": null,
+    "rip_message": "I never trusted Google with games, and somehow you still managed to disappoint me personally.",
+    "added_by": "rynex",
+    "added_date": "2026-04-02"
+  },
+  {
+    "id": "bitbucket-pipelines-50-minute-cushion",
+    "name": "Bitbucket Pipelines 50-minute Cushion",
+    "category": "other",
+    "cause_of_death": "paywalled",
+    "date_died": "2024",
+    "eulogy": "You had quietly run builds in the background while the rest of Atlassian pretended to be serious about developer goodwill. Then even those spare minutes got audited.",
+    "source_url": "https://www.atlassian.com/software/bitbucket/pricing",
+    "alternatives": [
+      {
+        "name": "GitHub Actions",
+        "url": "https://github.com/features/actions",
+        "free": true
+      },
+      {
+        "name": "GitLab CI/CD",
+        "url": "https://about.gitlab.com/pricing/",
+        "free": true
+      },
+      {
+        "name": "Drone CI",
+        "url": "https://www.drone.io/",
+        "free": true
+      }
+    ],
+    "date_born": "2016",
+    "company": "Atlassian",
+    "description": "You had bundled modest free build minutes into Bitbucket before those starter limits became noticeably stingier.",
+    "tags": ["bitbucket", "pipelines", "ci", "atlassian", "minutes"],
+    "archived_docs_url": "https://web.archive.org/web/20230101000000/https://www.atlassian.com/software/bitbucket/pricing",
+    "rip_message": "The hardest part was realizing the spreadsheet had won again.",
+    "added_by": "rynex",
+    "added_date": "2026-04-01"
+  },
+  {
+    "id": "google-plus-api",
+    "name": "Google+ API",
+    "category": "social",
+    "cause_of_death": "shutdown",
+    "date_died": "2019-03-07",
+    "eulogy": "You had lingered long after the party ended, still authenticating forgotten logins and social widgets nobody wanted to touch. The lights finally came on and everyone pretended they had already left.",
+    "source_url": "https://developers.googleblog.com/2019/03/expediting-changes-to-google-plus.html",
+    "alternatives": [
+      {
+        "name": "Mastodon API",
+        "url": "https://docs.joinmastodon.org/api/",
+        "free": true
+      },
+      {
+        "name": "Bluesky API",
+        "url": "https://docs.bsky.app/",
+        "free": true
+      },
+      {
+        "name": "Disqus API",
+        "url": "https://disqus.com/api/docs/",
+        "free": true
+      }
+    ],
+    "date_born": "2011",
+    "company": "Google",
+    "description": "You had exposed Google+ social data and sign-in surfaces before Google's accelerated shutdown closed the API in 2019.",
+    "tags": ["google-plus", "social", "oauth", "profile", "google"],
+    "archived_docs_url": "https://web.archive.org/web/20181201000000/https://developers.google.com/+/api/",
+    "rip_message": "You outlived the timeline somehow, which felt rude and impressive.",
+    "added_by": "rynex",
+    "added_date": "2026-03-31"
+  },
+  {
+    "id": "mashape-ui",
+    "name": "Mashape Marketplace UI",
+    "category": "other",
+    "cause_of_death": "acquired",
+    "date_died": "2019-02-11",
+    "eulogy": "You had made API browsing feel like a bazaar before marketplaces all learned to look the same. After the merger, your name survived mostly in migration emails and old conference stickers.",
+    "source_url": "https://rapidapi.com/blog/deprecating-the-mashape-ui/",
+    "alternatives": [
+      {
+        "name": "RapidAPI",
+        "url": "https://rapidapi.com/hub",
+        "free": false
+      },
+      {
+        "name": "APILayer",
+        "url": "https://apilayer.com/marketplace",
+        "free": true
+      },
+      {
+        "name": "Public APIs",
+        "url": "https://github.com/public-apis/public-apis",
+        "free": true
+      }
+    ],
+    "date_born": "2012",
+    "company": "Mashape",
+    "description": "You had served as an API marketplace before the RapidAPI acquisition finished absorbing and retiring the old Mashape interface.",
+    "tags": ["mashape", "rapidapi", "marketplace", "acquisition", "kong"],
+    "archived_docs_url": "https://web.archive.org/web/20180101000000/https://market.mashape.com/",
+    "rip_message": "You were where I first learned that APIs could be merchandised with a straight face.",
+    "added_by": "rynex",
+    "added_date": "2026-03-30"
+  },
+  {
+    "id": "google-translate-api-free",
+    "name": "Google Translate API (Free)",
+    "category": "translation",
+    "cause_of_death": "paywalled",
+    "date_died": "2011-12-01",
+    "eulogy": "You had translated prototypes, browser hacks, and terrible startup ideas for the price of asking politely. Then abuse got cited, billing got introduced, and innocence got deprecated.",
+    "source_url": "https://developers.googleblog.com/en/spring-cleaning-for-some-of-our-apis/",
+    "alternatives": [
+      {
+        "name": "LibreTranslate",
+        "url": "https://libretranslate.com/",
+        "free": true
+      },
+      {
+        "name": "DeepL API Free",
+        "url": "https://www.deepl.com/pro-api",
+        "free": true
+      },
+      {
+        "name": "MyMemory API",
+        "url": "https://mymemory.translated.net/doc/spec.php",
+        "free": true
+      }
+    ],
+    "date_born": "2007",
+    "company": "Google",
+    "description": "You had exposed machine translation at no charge before Google retired the free version and kept a paid service.",
+    "tags": ["translation", "google", "nlp", "free-tier", "language"],
+    "archived_docs_url": "https://web.archive.org/web/20110501000000/http://code.google.com/apis/language/translate/overview.html",
+    "rip_message": "You translated just enough to ship, which was all most of us could afford to want.",
+    "added_by": "rynex",
+    "added_date": "2026-03-29"
+  },
+  {
+    "id": "parse-hosted-service",
+    "name": "Parse Hosted Service",
+    "category": "database",
+    "cause_of_death": "shutdown",
+    "date_died": "2017-01-28",
+    "eulogy": "You had let mobile apps pretend backend engineering was optional, and for a while you were correct. When Facebook pulled the plug, an entire generation learned what migration weekend meant.",
+    "source_url": "https://web.archive.org/web/20160129151632/https://parse.com/blog/the-future-of-parse",
+    "alternatives": [
+      {
+        "name": "Back4App",
+        "url": "https://www.back4app.com/",
+        "free": true
+      },
+      {
+        "name": "Supabase",
+        "url": "https://supabase.com/",
+        "free": true
+      },
+      {
+        "name": "Appwrite",
+        "url": "https://appwrite.io/pricing",
+        "free": true
+      }
+    ],
+    "date_born": "2011",
+    "company": "Facebook",
+    "description": "You had hosted Parse applications and data before Facebook shut the managed service down in early 2017.",
+    "tags": ["parse", "backend-as-a-service", "mobile", "database", "shutdown"],
+    "archived_docs_url": "https://web.archive.org/web/20160101000000/https://parse.com/docs",
+    "rip_message": "You taught a lot of us to trust managed backends exactly once.",
+    "added_by": "rynex",
+    "added_date": "2026-03-28"
+  },
+  {
+    "id": "github-student-pack-offer-culls",
+    "name": "GitHub Student Pack Offer Culls",
+    "category": "other",
+    "cause_of_death": "deprecated",
+    "date_died": "2024",
+    "eulogy": "You had once felt like a dragon hoard for broke students with production dreams. Then the bundle thinned out and the legend started sounding like older siblings embellishing.",
+    "source_url": "https://education.github.com/pack",
+    "alternatives": [
+      {
+        "name": "JetBrains Student License",
+        "url": "https://www.jetbrains.com/community/education/#students",
+        "free": true
+      },
+      {
+        "name": "GitLab for Education",
+        "url": "https://about.gitlab.com/solutions/education/",
+        "free": true
+      },
+      {
+        "name": "Microsoft Azure for Students",
+        "url": "https://azure.microsoft.com/en-us/free/students/",
+        "free": true
+      }
+    ],
+    "date_born": "2014",
+    "company": "GitHub",
+    "description": "You had bundled unusually generous student benefits before partner offers gradually disappeared and the pack lost some mythic weight.",
+    "tags": ["github", "students", "developer-tools", "benefits", "free-tier"],
+    "archived_docs_url": "https://web.archive.org/web/20210101000000/https://education.github.com/pack",
+    "rip_message": "The pack used to feel like cheating in the best possible way.",
+    "added_by": "rynex",
+    "added_date": "2026-03-27"
+  },
+  {
+    "id": "firebase-spark-plan-headroom",
+    "name": "Firebase Spark Plan Headroom",
+    "category": "database",
+    "cause_of_death": "rate_limited",
+    "date_died": "2020",
+    "eulogy": "You had let small apps coast on optimism and quotas that almost felt forgiving. Then the ceiling lowered just enough to make every growth spike look like a warning shot.",
+    "source_url": "https://firebase.google.com/pricing",
+    "alternatives": [
+      {
+        "name": "Supabase",
+        "url": "https://supabase.com/pricing",
+        "free": true
+      },
+      {
+        "name": "Appwrite",
+        "url": "https://appwrite.io/pricing",
+        "free": true
+      },
+      {
+        "name": "PocketBase",
+        "url": "https://pocketbase.io/",
+        "free": true
+      }
+    ],
+    "date_born": "2011",
+    "company": "Google",
+    "description": "You had provided free starter limits for Firebase projects before repeated quota and product-limit tightening made Spark feel much smaller.",
+    "tags": ["firebase", "spark", "quota", "database", "google"],
+    "archived_docs_url": "https://web.archive.org/web/20190101000000/https://firebase.google.com/pricing",
+    "rip_message": "The first time I hit the new ceiling I realized 'starter' had started meaning 'barely'.",
+    "added_by": "rynex",
+    "added_date": "2026-03-26"
+  },
+  {
+    "id": "mapbox-starter-quotas",
+    "name": "Mapbox Starter Quotas",
+    "category": "maps",
+    "cause_of_death": "paywalled",
+    "date_died": "2019",
+    "eulogy": "You had let small maps look expensive while the bill stayed charmingly absent. Then the free runway shortened and location suddenly needed product-market fit.",
+    "source_url": "https://www.mapbox.com/pricing/",
+    "alternatives": [
+      {
+        "name": "MapLibre",
+        "url": "https://maplibre.org/",
+        "free": true
+      },
+      {
+        "name": "Leaflet + OpenStreetMap",
+        "url": "https://leafletjs.com/",
+        "free": true
+      },
+      {
+        "name": "OpenCage",
+        "url": "https://opencagedata.com/pricing",
+        "free": true
+      }
+    ],
+    "date_born": "2010",
+    "company": "Mapbox",
+    "description": "You had made polished mapping accessible before pricing changes in 2019 cut into the older free-use comfort zone.",
+    "tags": ["maps", "geocoding", "tiles", "mapbox", "free-tier"],
+    "archived_docs_url": "https://web.archive.org/web/20180101000000/https://www.mapbox.com/pricing/",
+    "rip_message": "The old quotas spoiled an entire generation of hackathon maps.",
+    "added_by": "rynex",
+    "added_date": "2026-03-25"
+  },
+  {
+    "id": "mlab",
+    "name": "mLab",
+    "category": "database",
+    "cause_of_death": "acquired",
+    "date_died": "2020",
+    "eulogy": "You had been the default MongoDB answer when nobody wanted to hear about ops. After MongoDB folded you in, convenience survived, but your small independent soul decidedly did not.",
+    "source_url": "https://web.archive.org/web/20181010010307/https://mlab.com/company/announcements/mLab-is-now-part-of-MongoDB.html",
+    "alternatives": [
+      {
+        "name": "MongoDB Atlas",
+        "url": "https://www.mongodb.com/cloud/atlas/register",
+        "free": true
+      },
+      {
+        "name": "ScaleGrid",
+        "url": "https://scalegrid.io/pricing.html",
+        "free": false
+      },
+      {
+        "name": "FerretDB",
+        "url": "https://www.ferretdb.com/",
+        "free": true
+      }
+    ],
+    "date_born": "2010",
+    "company": "mLab",
+    "description": "You had offered managed MongoDB hosting before the MongoDB acquisition completed and the standalone mLab service was retired.",
+    "tags": ["mongodb", "database", "mlab", "hosting", "acquisition"],
+    "archived_docs_url": "https://web.archive.org/web/20190101000000/https://docs.mlab.com/",
+    "rip_message": "You were the database I recommended when I didn't want to ruin anyone's weekend.",
+    "added_by": "rynex",
+    "added_date": "2026-03-24"
+  },
+  {
+    "id": "sendgrid-legacy-free-tier",
+    "name": "SendGrid Legacy Free Tier",
+    "category": "email",
+    "cause_of_death": "paywalled",
+    "date_died": "2020",
+    "eulogy": "You had relayed verification emails, password resets, and accidental double-sends with admirable indifference. Then the old free math changed and bootstrappers had to start budgeting for sincerity.",
+    "source_url": "https://sendgrid.com/en-us/pricing",
+    "alternatives": [
+      {
+        "name": "Resend",
+        "url": "https://resend.com/pricing",
+        "free": true
+      },
+      {
+        "name": "Mailgun",
+        "url": "https://www.mailgun.com/pricing/",
+        "free": true
+      },
+      {
+        "name": "Postmark",
+        "url": "https://postmarkapp.com/pricing",
+        "free": false
+      }
+    ],
+    "date_born": "2009",
+    "company": "SendGrid",
+    "description": "You had supplied free transactional email volume before legacy no-cost allowances narrowed into stricter commercial limits.",
+    "tags": ["sendgrid", "email", "transactional", "smtp", "free-tier"],
+    "archived_docs_url": "https://web.archive.org/web/20190101000000/https://sendgrid.com/pricing/",
+    "rip_message": "You were the least glamorous dependency and somehow one of the most beloved.",
+    "added_by": "rynex",
+    "added_date": "2026-03-23"
+  },
+  {
+    "id": "cloudinary-free-plan-before-the-diet",
+    "name": "Cloudinary Free Plan Before the Diet",
+    "category": "media",
+    "cause_of_death": "rate_limited",
+    "date_died": "2024",
+    "eulogy": "You had resized, optimized, and transformed the internet's JPEG habits without much complaint. Then the free plan got leaner, and every responsive image looked slightly more expensive.",
+    "source_url": "https://cloudinary.com/pricing",
+    "alternatives": [
+      {
+        "name": "ImageKit",
+        "url": "https://imagekit.io/pricing/",
+        "free": true
+      },
+      {
+        "name": "Uploadcare",
+        "url": "https://uploadcare.com/pricing/",
+        "free": false
+      },
+      {
+        "name": "Bunny Optimizer",
+        "url": "https://bunny.net/optimizer/",
+        "free": false
+      }
+    ],
+    "date_born": "2012",
+    "company": "Cloudinary",
+    "description": "You had offered a roomy media-management free plan before newer limits cut down the old transformation and bandwidth comfort.",
+    "tags": ["cloudinary", "images", "cdn", "media", "free-tier"],
+    "archived_docs_url": "https://web.archive.org/web/20230101000000/https://cloudinary.com/pricing",
+    "rip_message": "The image pipeline still worked; the nostalgia was for not having to think about it so much.",
+    "added_by": "rynex",
+    "added_date": "2026-03-22"
+  }
+]

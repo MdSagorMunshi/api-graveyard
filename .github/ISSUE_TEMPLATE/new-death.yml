@@ -1,0 +1,128 @@
+name: New death
+description: Submit an API, developer tool, or free tier that died and deserves a verified obituary.
+title: "[New death]: "
+labels:
+  - new-entry
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - hosting
+        - database
+        - auth
+        - email
+        - storage
+        - social
+        - maps
+        - payment
+        - messaging
+        - analytics
+        - translation
+        - search
+        - media
+        - monitoring
+        - other
+    validations:
+      required: true
+  - type: dropdown
+    id: cause_of_death
+    attributes:
+      label: Cause of death
+      options:
+        - shutdown
+        - acquired
+        - paywalled
+        - deprecated
+        - rate_limited
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: API or service name
+      placeholder: Heroku Free Dynos
+    validations:
+      required: true
+  - type: input
+    id: company
+    attributes:
+      label: Company name
+      placeholder: Heroku
+    validations:
+      required: true
+  - type: input
+    id: date_died
+    attributes:
+      label: Date it died
+      placeholder: YYYY-MM-DD or just YYYY
+    validations:
+      required: true
+  - type: input
+    id: date_born
+    attributes:
+      label: Date it was born
+      placeholder: YYYY-MM-DD or just YYYY (optional)
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Brief description
+      description: One factual sentence, in past tense. Keep it under 160 characters.
+      placeholder: It had provided free dynos for lightweight web apps and student projects.
+    validations:
+      required: true
+  - type: textarea
+    id: eulogy
+    attributes:
+      label: Eulogy
+      description: Write 1–3 sentences in second person, past tense. Be honest. Be a little sad. It's okay to be funny. Keep it under 280 characters.
+      placeholder: You spun up our side projects at midnight and never asked for a credit card.
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Source URL
+      description: Required. Link to an official announcement, archived page, or trustworthy reporting.
+      placeholder: https://example.com/announcement
+    validations:
+      required: true
+  - type: input
+    id: archived_docs_url
+    attributes:
+      label: Archived docs URL
+      placeholder: https://web.archive.org/web/...
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Free alternatives
+      description: One per line. Format as Name | URL | free or paid.
+      placeholder: |-
+        Render | https://render.com/pricing | free
+        Fly.io | https://fly.io/docs/about/pricing/ | free
+    validations:
+      required: true
+  - type: textarea
+    id: rip_message
+    attributes:
+      label: Personal memory
+      description: Optional. First person. Keep it under 140 characters.
+      placeholder: I hosted my first real side project there.
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirm before submitting
+      options:
+        - label: I checked that this entry does not already exist.
+          required: true
+        - label: I included a real source URL.
+          required: true
+        - label: I wrote the eulogy myself and did not copy it from elsewhere.
+          required: true
