@@ -21,6 +21,8 @@
 
 api-graveyard exists because broken bookmarks and vague pricing pages are not a historical record. This repository keeps a static, source-backed obituary desk for services developers actually used. It is intentionally low-cost, static, and difficult to rug-pull. The tone is mournful because the work is practical.
 
+Entries now carry evidence summaries, last-verified dates, verified-free stamps on alternatives, and status badges when a record is disputed or still under review.
+
 ## What counts as dead?
 
 - `shutdown` means the service, API, or free plan was switched off outright.

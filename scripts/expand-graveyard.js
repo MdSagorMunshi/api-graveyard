@@ -471,7 +471,8 @@ function pickTemplate(seed) {
 
 function cloneAlternatives(category) {
   return (CATEGORY_ALTERNATIVES[category] || CATEGORY_ALTERNATIVES.other).map((alternative) => ({
-    ...alternative
+    ...alternative,
+    verified_free_date: TODAY
   }));
 }
 
@@ -515,6 +516,50 @@ function makeEulogy(name) {
   return trimToLimit(pickTemplate(name), 280);
 }
 
+function inferSourceType(url) {
+  if (!url) {
+    return "community";
+  }
+
+  if (url.includes("web.archive.org")) {
+    return "official_archive";
+  }
+
+  if (
+    /(developers\.googleblog\.com|shopify\.dev|auth0\.com|mailchimp\.com|netlify\.com|circleci\.com|pusher\.com|pubnub\.com|blog\.heroku\.com|developers\.google\.com|github\.blog|developers\.facebook\.com)/.test(
+      url
+    )
+  ) {
+    return "official";
+  }
+
+  if (url.includes("deprecated-api.io")) {
+    return "community";
+  }
+
+  return "news";
+}
+
+function makeEvidence(name, causeOfDeath, sourceUrl, archivedDocsUrl, dateDied) {
+  const summaries = {
+    shutdown: `This source records when ${name} was shut down and how the provider framed the end of service.`,
+    acquired: `This source records how ${name} was absorbed or folded away and what developers lost in the process.`,
+    paywalled: `This source records when ${name} stopped being meaningfully free and what changed in pricing or access.`,
+    deprecated: `This source records the retirement of ${name} and the provider's migration or end-of-support guidance.`,
+    rate_limited: `This source records the quota change that made ${name} materially less useful and how it was announced.`
+  };
+
+  return {
+    source_type: inferSourceType(sourceUrl),
+    summary: trimToLimit(
+      summaries[causeOfDeath] || `This source records what changed for ${name} and how the provider described the loss.`,
+      220
+    ),
+    announcement_date: dateDied,
+    archive_url: archivedDocsUrl || (sourceUrl.includes("web.archive.org") ? sourceUrl : null)
+  };
+}
+
 function buildEntry({
   id,
   name,
@@ -528,7 +573,10 @@ function buildEntry({
   description = null,
   tags = [],
   archived_docs_url = null,
-  rip_message = null
+  rip_message = null,
+  record_status = "needs_review",
+  status_note = "Bulk-imported entry. Verify alternatives and evidence details before calling this settled.",
+  successor = null
 }) {
   return {
     id,
@@ -543,6 +591,19 @@ function buildEntry({
     company,
     description: description || makeDescription(name, company),
     tags,
+    evidence: makeEvidence(name, cause_of_death, source_url, archived_docs_url, date_died),
+    successor:
+      successor ||
+      (alternatives[0]
+        ? {
+            name: alternatives[0].name,
+            url: alternatives[0].url,
+            notes: "Closest currently listed replacement."
+          }
+        : null),
+    last_verified_date: TODAY,
+    record_status,
+    status_note,
     archived_docs_url,
     rip_message,
     added_by: ADDED_BY,

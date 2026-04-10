@@ -462,7 +462,14 @@ select {
   line-height: 1.05;
 }
 
+.card-badge-stack {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+
 .cause-badge,
+.status-badge,
 .category-pill,
 .tag-pill,
 .alt-pill,
@@ -477,6 +484,15 @@ select {
 }
 
 .cause-badge {
+  white-space: nowrap;
+}
+
+.status-badge {
+  border: 1px solid currentColor;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
@@ -515,6 +531,15 @@ select {
 
 .grave-eulogy {
   font-size: 0.98rem;
+}
+
+.status-note,
+.entry-status-note {
+  margin: 0;
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  line-height: 1.6;
 }
 
 .entry-eulogy {
@@ -778,6 +803,13 @@ select {
   gap: 18px;
 }
 
+.evidence-meta,
+.detail-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .detail-block {
   padding: 20px;
 }
@@ -798,6 +830,17 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+}
+
+.alt-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.alt-copy small {
+  color: var(--text-tertiary);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
 }
 
 .alt-status {
@@ -861,6 +904,21 @@ select {
   --cause-color: var(--teal);
   color: var(--teal);
   background: var(--teal-bg);
+}
+
+.status-verified {
+  color: var(--green);
+  background: var(--green-bg);
+}
+
+.status-needs-review {
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.status-disputed {
+  color: var(--red);
+  background: var(--red-bg);
 }
 
 .grave-card.cause-shutdown,

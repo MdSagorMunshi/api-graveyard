@@ -20,6 +20,8 @@ const ALLOWED_CATEGORIES = [
 ];
 
 const ALLOWED_CAUSES = ["shutdown", "acquired", "paywalled", "deprecated", "rate_limited"];
+const ALLOWED_RECORD_STATUSES = ["verified", "needs_review", "disputed"];
+const ALLOWED_SOURCE_TYPES = ["official", "official_archive", "news", "community"];
 const ID_PATTERN = /^[a-z0-9-]+$/;
 const DATE_PATTERN = /^\d{4}(-\d{2}-\d{2})?$/;
 const URL_PROTOCOLS = new Set(["http:", "https:"]);
@@ -67,6 +69,14 @@ function pushError(errors, entryLabel, field, message) {
   errors.push({ entryId: entryLabel, field, message });
 }
 
+function normalizeForDuplicateCheck(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
 function validateEntries(entries) {
   const errors = [];
 
@@ -75,10 +85,18 @@ function validateEntries(entries) {
   }
 
   const idCounts = new Map();
+  const displayKeyCounts = new Map();
 
   for (const entry of entries) {
     if (entry && typeof entry === "object" && isNonEmptyString(entry.id)) {
       idCounts.set(entry.id, (idCounts.get(entry.id) || 0) + 1);
+    }
+
+    if (entry && typeof entry === "object") {
+      const displayKey = `${normalizeForDuplicateCheck(entry.company)}::${normalizeForDuplicateCheck(entry.name)}`;
+      if (displayKey !== "::") {
+        displayKeyCounts.set(displayKey, (displayKeyCounts.get(displayKey) || 0) + 1);
+      }
     }
   }
 
@@ -111,6 +129,11 @@ function validateEntries(entries) {
       }
     }
 
+    const displayKey = `${normalizeForDuplicateCheck(entry.company)}::${normalizeForDuplicateCheck(entry.name)}`;
+    if (displayKey !== "::" && displayKeyCounts.get(displayKey) > 1) {
+      pushError(errors, label, "name", "appears to duplicate another entry with the same normalized company and name");
+    }
+
     if (entry.category && !ALLOWED_CATEGORIES.includes(entry.category)) {
       pushError(errors, label, "category", `must be one of: ${ALLOWED_CATEGORIES.join(", ")}`);
     }
@@ -125,6 +148,19 @@ function validateEntries(entries) {
 
     if (entry.date_born !== null && entry.date_born !== undefined && !isValidDate(entry.date_born)) {
       pushError(errors, label, "date_born", "must be null or match YYYY or YYYY-MM-DD");
+    }
+
+    if (!isNonEmptyString(entry.last_verified_date) || !isValidDate(entry.last_verified_date)) {
+      pushError(errors, label, "last_verified_date", "is required and must match YYYY or YYYY-MM-DD");
+    }
+
+    if (!isNonEmptyString(entry.record_status) || !ALLOWED_RECORD_STATUSES.includes(entry.record_status)) {
+      pushError(
+        errors,
+        label,
+        "record_status",
+        `is required and must be one of: ${ALLOWED_RECORD_STATUSES.join(", ")}`
+      );
     }
 
     if (entry.eulogy && entry.eulogy.length > 280) {
@@ -147,6 +183,14 @@ function validateEntries(entries) {
       }
     }
 
+    if (entry.status_note !== null && entry.status_note !== undefined) {
+      if (!isNonEmptyString(entry.status_note)) {
+        pushError(errors, label, "status_note", "must be null or a non-empty string");
+      } else if (entry.status_note.length > 200) {
+        pushError(errors, label, "status_note", "must be 200 characters or fewer");
+      }
+    }
+
     if (entry.source_url && !isValidUrl(entry.source_url)) {
       pushError(errors, label, "source_url", "must be a valid http or https URL");
     }
@@ -161,6 +205,66 @@ function validateEntries(entries) {
 
     if (entry.company !== null && entry.company !== undefined && !isNonEmptyString(entry.company)) {
       pushError(errors, label, "company", "must be null or a non-empty string");
+    }
+
+    if (!entry.evidence || typeof entry.evidence !== "object" || Array.isArray(entry.evidence)) {
+      pushError(errors, label, "evidence", "is required and must be an object");
+    } else {
+      if (
+        !isNonEmptyString(entry.evidence.source_type) ||
+        !ALLOWED_SOURCE_TYPES.includes(entry.evidence.source_type)
+      ) {
+        pushError(
+          errors,
+          label,
+          "evidence.source_type",
+          `is required and must be one of: ${ALLOWED_SOURCE_TYPES.join(", ")}`
+        );
+      }
+
+      if (!isNonEmptyString(entry.evidence.summary)) {
+        pushError(errors, label, "evidence.summary", "is required and must be a non-empty string");
+      } else if (entry.evidence.summary.length > 220) {
+        pushError(errors, label, "evidence.summary", "must be 220 characters or fewer");
+      }
+
+      if (
+        entry.evidence.announcement_date !== null &&
+        entry.evidence.announcement_date !== undefined &&
+        !isValidDate(entry.evidence.announcement_date)
+      ) {
+        pushError(errors, label, "evidence.announcement_date", "must be null or match YYYY or YYYY-MM-DD");
+      }
+
+      if (
+        entry.evidence.archive_url !== null &&
+        entry.evidence.archive_url !== undefined &&
+        !isValidUrl(entry.evidence.archive_url)
+      ) {
+        pushError(errors, label, "evidence.archive_url", "must be null or a valid http or https URL");
+      }
+    }
+
+    if (entry.successor !== null && entry.successor !== undefined) {
+      if (!entry.successor || typeof entry.successor !== "object" || Array.isArray(entry.successor)) {
+        pushError(errors, label, "successor", "must be null or an object");
+      } else {
+        if (!isNonEmptyString(entry.successor.name)) {
+          pushError(errors, label, "successor.name", "is required when successor is provided");
+        }
+
+        if (!isNonEmptyString(entry.successor.url) || !isValidUrl(entry.successor.url)) {
+          pushError(errors, label, "successor.url", "is required and must be a valid http or https URL");
+        }
+
+        if (entry.successor.notes !== null && entry.successor.notes !== undefined) {
+          if (!isNonEmptyString(entry.successor.notes)) {
+            pushError(errors, label, "successor.notes", "must be null or a non-empty string");
+          } else if (entry.successor.notes.length > 160) {
+            pushError(errors, label, "successor.notes", "must be 160 characters or fewer");
+          }
+        }
+      }
     }
 
     if (entry.added_by !== null && entry.added_by !== undefined && !isNonEmptyString(entry.added_by)) {
@@ -203,6 +307,15 @@ function validateEntries(entries) {
         if (typeof alternative.free !== "boolean") {
           pushError(errors, label, `alternatives[${altIndex}].free`, "is required and must be a boolean");
         }
+
+        if (!isNonEmptyString(alternative.verified_free_date) || !isValidDate(alternative.verified_free_date)) {
+          pushError(
+            errors,
+            label,
+            `alternatives[${altIndex}].verified_free_date`,
+            "is required and must match YYYY or YYYY-MM-DD"
+          );
+        }
       });
     }
   });
@@ -239,10 +352,13 @@ if (require.main === module) {
 module.exports = {
   ALLOWED_CATEGORIES,
   ALLOWED_CAUSES,
+  ALLOWED_RECORD_STATUSES,
+  ALLOWED_SOURCE_TYPES,
   ID_PATTERN,
   DATE_PATTERN,
   isValidDate,
   isValidUrl,
+  normalizeForDuplicateCheck,
   readEntries,
   validateEntries
 };

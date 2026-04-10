@@ -4,6 +4,7 @@ const path = require("node:path");
 const {
   ALLOWED_CATEGORIES,
   ALLOWED_CAUSES,
+  ALLOWED_SOURCE_TYPES,
   isValidDate,
   isValidUrl,
   readEntries,
@@ -54,7 +55,8 @@ function parseAlternatives(input) {
       return {
         name,
         url,
-        free: /^free$/i.test(freeFlag)
+        free: /^free$/i.test(freeFlag),
+        verified_free_date: new Date().toISOString().slice(0, 10)
       };
     });
 }
@@ -140,11 +142,58 @@ async function main() {
     }
   });
 
+  const sourceType = await select({
+    message: "Evidence source type",
+    choices: ALLOWED_SOURCE_TYPES.map((value) => ({ value, name: value }))
+  });
+
+  const evidenceSummary = await input({
+    message: "Evidence summary (what exactly does the source prove?)",
+    validate(value) {
+      if (!value.trim()) {
+        return "Evidence summary is required.";
+      }
+      return value.length <= 220 ? true : "Keep the evidence summary at 220 characters or fewer.";
+    }
+  });
+
+  const announcementDate = await input({
+    message: "Announcement date (optional, YYYY or YYYY-MM-DD)",
+    default: "",
+    validate(value) {
+      return !value.trim() || isValidDate(value) ? true : "Use YYYY or YYYY-MM-DD, or leave blank.";
+    }
+  });
+
   const archivedDocsUrl = await input({
     message: "Archived docs URL (optional)",
     default: "",
     validate(value) {
       return !value.trim() || isValidUrl(value) ? true : "Enter a valid URL, or leave blank.";
+    }
+  });
+
+  const successorName = await input({
+    message: "Recommended successor name (optional)",
+    default: "",
+    validate() {
+      return true;
+    }
+  });
+
+  const successorUrl = await input({
+    message: "Recommended successor URL (optional)",
+    default: "",
+    validate(value) {
+      return !value.trim() || isValidUrl(value) ? true : "Enter a valid URL, or leave blank.";
+    }
+  });
+
+  const successorNotes = await input({
+    message: "Successor notes (optional, max 160 chars)",
+    default: "",
+    validate(value) {
+      return value.length <= 160 ? true : "Keep successor notes at 160 characters or fewer.";
     }
   });
 
@@ -208,6 +257,23 @@ async function main() {
     date_born: dateBorn.trim() || null,
     company: company.trim() || null,
     description: description.trim() || null,
+    evidence: {
+      source_type: sourceType,
+      summary: evidenceSummary.trim(),
+      announcement_date: announcementDate.trim() || null,
+      archive_url: archivedDocsUrl.trim() || null
+    },
+    successor:
+      successorName.trim() && successorUrl.trim()
+        ? {
+            name: successorName.trim(),
+            url: successorUrl.trim(),
+            notes: successorNotes.trim() || null
+          }
+        : null,
+    last_verified_date: new Date().toISOString().slice(0, 10),
+    record_status: "verified",
+    status_note: null,
     tags: tagsRaw
       .split(",")
       .map((tag) => tag.trim().toLowerCase())

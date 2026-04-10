@@ -6,6 +6,7 @@ pagination:
 permalink: "entry/{{ entry.id }}/index.html"
 ---
 {% set cause = entry.cause_of_death | causeMeta %}
+{% set recordStatus = entry.record_status | recordStatusMeta %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,6 +68,7 @@ permalink: "entry/{{ entry.id }}/index.html"
             <span aria-hidden="true">{{ cause.symbol }}</span>
             <span>{{ cause.label }}</span>
           </span>
+          <span class="status-badge {{ recordStatus.className }}">{{ recordStatus.label }}</span>
           <span class="category-pill">{{ entry.category }}</span>
           <span class="mono-meta">{{ entry.company or "Independent service" }}</span>
           <span class="mono-meta">
@@ -74,7 +76,13 @@ permalink: "entry/{{ entry.id }}/index.html"
             —
             <time datetime="{{ entry.date_died }}">{{ entry.date_died }}</time>
           </span>
+          <span class="mono-meta">
+            Verified <time datetime="{{ entry.last_verified_date }}">{{ entry.last_verified_date }}</time>
+          </span>
         </div>
+        {% if entry.status_note %}
+          <p class="entry-status-note">{{ entry.status_note }}</p>
+        {% endif %}
       </section>
 
       <section class="entry-columns">
@@ -83,6 +91,19 @@ permalink: "entry/{{ entry.id }}/index.html"
           {% if entry.description %}
             <p class="entry-description">{{ entry.description }}</p>
           {% endif %}
+
+          <div class="detail-block">
+            <h2>Evidence</h2>
+            <div class="evidence-meta">
+              <span class="tag-pill">{{ entry.evidence.source_type | replace("_", " ") }}</span>
+              {% if entry.evidence.announcement_date %}
+                <span class="mono-meta">
+                  Announced <time datetime="{{ entry.evidence.announcement_date }}">{{ entry.evidence.announcement_date }}</time>
+                </span>
+              {% endif %}
+            </div>
+            <p>{{ entry.evidence.summary }}</p>
+          </div>
 
           <div class="detail-block">
             <h2>Source</h2>
@@ -114,6 +135,22 @@ permalink: "entry/{{ entry.id }}/index.html"
             </div>
           {% endif %}
 
+          {% if entry.evidence.archive_url and entry.evidence.archive_url != entry.archived_docs_url %}
+            <div class="detail-block">
+              <h2>Archived evidence</h2>
+              <p>
+                <a
+                  href="{{ entry.evidence.archive_url }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit archived evidence for {{ entry.name }} (opens in new tab)"
+                >
+                  {{ entry.evidence.archive_url }}
+                </a>
+              </p>
+            </div>
+          {% endif %}
+
           {% if entry.rip_message %}
             <div class="detail-block">
               <h2>Contributor note</h2>
@@ -140,19 +177,41 @@ permalink: "entry/{{ entry.id }}/index.html"
         </div>
 
         <aside class="entry-side">
+          {% if entry.successor %}
+            <div class="detail-block">
+              <h2>Suggested successor</h2>
+              <p>
+                <a
+                  href="{{ entry.successor.url }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visit {{ entry.successor.name }} (opens in new tab)"
+                >
+                  {{ entry.successor.name }}
+                </a>
+              </p>
+              {% if entry.successor.notes %}
+                <p>{{ entry.successor.notes }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+
           <div class="detail-block">
             <h2>Alternatives</h2>
             <ul class="alt-list">
               {% for alternative in entry.alternatives %}
                 <li>
-                  <a
-                    href="{{ alternative.url }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visit {{ alternative.name }} (opens in new tab)"
-                  >
-                    {{ alternative.name }}
-                  </a>
+                  <div class="alt-copy">
+                    <a
+                      href="{{ alternative.url }}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Visit {{ alternative.name }} (opens in new tab)"
+                    >
+                      {{ alternative.name }}
+                    </a>
+                    <small>Verified <time datetime="{{ alternative.verified_free_date }}">{{ alternative.verified_free_date }}</time></small>
+                  </div>
                   <span class="alt-status {{ 'is-free' if alternative.free else 'is-paid' }}">
                     {{ "free tier" if alternative.free else "paid only" }}
                   </span>
@@ -209,16 +268,22 @@ permalink: "entry/{{ entry.id }}/index.html"
         <div class="grave-grid compact-grid">
           {% for related in entries | relatedEntries(entry) %}
             {% set relatedCause = related.cause_of_death | causeMeta %}
+            {% set relatedRecordStatus = related.record_status | recordStatusMeta %}
             <article class="grave-card {{ relatedCause.className }}" aria-label="{{ related.name }}">
               <div class="grave-card-head">
                 <div>
                   <h3>{{ related.name }}</h3>
                   <p class="grave-company">{{ related.company or 'Independent service' }}</p>
                 </div>
-                <span class="cause-badge {{ relatedCause.className }}">
-                  <span aria-hidden="true">{{ relatedCause.symbol }}</span>
-                  <span>{{ relatedCause.label }}</span>
-                </span>
+                <div class="card-badge-stack">
+                  {% if related.record_status != 'verified' %}
+                    <span class="status-badge {{ relatedRecordStatus.className }}">{{ relatedRecordStatus.label }}</span>
+                  {% endif %}
+                  <span class="cause-badge {{ relatedCause.className }}">
+                    <span aria-hidden="true">{{ relatedCause.symbol }}</span>
+                    <span>{{ relatedCause.label }}</span>
+                  </span>
+                </div>
               </div>
               <p class="grave-eulogy">{{ related.eulogy }}</p>
               <a class="read-more" href="../{{ related.id }}/">→ Read more</a>

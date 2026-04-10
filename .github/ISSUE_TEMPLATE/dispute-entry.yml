@@ -15,7 +15,7 @@ body:
     id: what_is_incorrect
     attributes:
       label: What is incorrect
-      placeholder: The date is wrong, the service came back, or the cause of death is misclassified.
+      placeholder: The date is wrong, the service came back, the free tier still exists, or this record should be marked disputed or needs_review.
     validations:
       required: true
   - type: input
@@ -29,6 +29,6 @@ body:
     id: proposed_value
     attributes:
       label: Proposed corrected value
-      placeholder: date_died should be 2023-03-29 and cause_of_death should be paywalled.
+      placeholder: date_died should be 2023-03-29, record_status should be disputed, and the evidence summary should cite the new announcement.
     validations:
       required: true

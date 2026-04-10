@@ -137,6 +137,7 @@ permalink: index.html
         <div id="grave-grid" class="grave-grid">
           {% for entry in entries | sortByDateDied %}
             {% set cause = entry.cause_of_death | causeMeta %}
+            {% set recordStatus = entry.record_status | recordStatusMeta %}
             <article
               class="grave-card {{ cause.className }}"
               aria-label="{{ entry.name }}"
@@ -147,10 +148,15 @@ permalink: index.html
                   <h3>{{ entry.name }}</h3>
                   <p class="grave-company">{{ entry.company or 'Independent service' }}</p>
                 </div>
-                <span class="cause-badge {{ cause.className }}">
-                  <span aria-hidden="true">{{ cause.symbol }}</span>
-                  <span>{{ cause.label }}</span>
-                </span>
+                <div class="card-badge-stack">
+                  {% if entry.record_status != 'verified' %}
+                    <span class="status-badge {{ recordStatus.className }}">{{ recordStatus.label }}</span>
+                  {% endif %}
+                  <span class="cause-badge {{ cause.className }}">
+                    <span aria-hidden="true">{{ cause.symbol }}</span>
+                    <span>{{ cause.label }}</span>
+                  </span>
+                </div>
               </div>
               <div class="dates-row">
                 <span>Born: <time datetime="{{ entry.date_born or entry.date_died }}">{{ entry.date_born or 'Unknown' }}</time></span>
@@ -160,6 +166,9 @@ permalink: index.html
                 <span class="category-pill">{{ entry.category }}</span>
               </div>
               <p class="grave-eulogy">{{ entry.eulogy }}</p>
+              {% if entry.status_note %}
+                <p class="status-note">{{ entry.status_note }}</p>
+              {% endif %}
               {% if entry.alternatives.length %}
                 <div class="alternatives-row">
                   {% for alternative in entry.alternatives %}

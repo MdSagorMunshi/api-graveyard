@@ -90,6 +90,26 @@ body:
       placeholder: https://example.com/announcement
     validations:
       required: true
+  - type: dropdown
+    id: source_type
+    attributes:
+      label: Source type
+      description: Pick the strongest kind of evidence you have.
+      options:
+        - official
+        - official_archive
+        - news
+        - community
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_summary
+    attributes:
+      label: Evidence summary
+      description: In one or two sentences, explain exactly what the source proves. Keep it under 220 characters.
+      placeholder: Shopify confirms this version aged out of support on the published release schedule and directs developers to newer versions.
+    validations:
+      required: true
   - type: input
     id: archived_docs_url
     attributes:
@@ -97,16 +117,47 @@ body:
       placeholder: https://web.archive.org/web/...
     validations:
       required: false
+  - type: input
+    id: announcement_date
+    attributes:
+      label: Announcement date
+      description: Optional. Use YYYY-MM-DD or YYYY if the source gives a distinct announcement date.
+      placeholder: YYYY-MM-DD or YYYY
+    validations:
+      required: false
   - type: textarea
     id: alternatives
     attributes:
       label: Free alternatives
-      description: One per line. Format as Name | URL | free or paid.
+      description: One per line. Format as Name | URL | free or paid. Maintainers will stamp the verified free date when reviewing.
       placeholder: |-
         Render | https://render.com/pricing | free
         Fly.io | https://fly.io/docs/about/pricing/ | free
     validations:
       required: true
+  - type: input
+    id: successor_name
+    attributes:
+      label: Suggested successor name
+      description: Optional. If the provider pushed developers toward a specific replacement, name it here.
+      placeholder: Shopify Admin GraphQL API
+    validations:
+      required: false
+  - type: input
+    id: successor_url
+    attributes:
+      label: Suggested successor URL
+      placeholder: https://shopify.dev/docs/api/admin-graphql
+    validations:
+      required: false
+  - type: textarea
+    id: successor_notes
+    attributes:
+      label: Suggested successor notes
+      description: Optional. Keep it under 160 characters.
+      placeholder: Provider-recommended replacement with broader support going forward.
+    validations:
+      required: false
   - type: textarea
     id: rip_message
     attributes:

@@ -26,6 +26,12 @@ const categoryOptions = [
   { value: "other", label: "Other" }
 ];
 
+const recordStatusOptions = [
+  { value: "verified", label: "Verified", className: "status-verified" },
+  { value: "needs_review", label: "Needs review", className: "status-needs-review" },
+  { value: "disputed", label: "Disputed", className: "status-disputed" }
+];
+
 function formatDisplayDate(value) {
   if (!value) {
     return "Unknown";
@@ -57,6 +63,10 @@ function sortValue(value, latestInYear = true) {
 
 function causeMeta(value) {
   return causeOptions.find((cause) => cause.value === value) || causeOptions[0];
+}
+
+function recordStatusMeta(value) {
+  return recordStatusOptions.find((status) => status.value === value) || recordStatusOptions[0];
 }
 
 function groupByDeathYear(entries) {
@@ -165,12 +175,14 @@ module.exports = function configure(eleventyConfig) {
     issueUrl: "https://github.com/MdSagorMunshi/api-graveyard/issues/new?template=new-death.yml",
     contributingUrl: "https://github.com/MdSagorMunshi/api-graveyard/blob/main/CONTRIBUTING.md",
     causeOptions,
-    categoryOptions
+    categoryOptions,
+    recordStatusOptions
   });
 
   eleventyConfig.addFilter("json", (value) => JSON.stringify(value));
   eleventyConfig.addFilter("htmlAttrJson", escapeAttributeJson);
   eleventyConfig.addFilter("causeMeta", causeMeta);
+  eleventyConfig.addFilter("recordStatusMeta", recordStatusMeta);
   eleventyConfig.addFilter("formatDisplayDate", formatDisplayDate);
   eleventyConfig.addFilter("dateYear", yearFromDate);
   eleventyConfig.addFilter("absoluteUrl", absoluteUrl);

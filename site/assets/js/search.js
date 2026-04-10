@@ -6,6 +6,12 @@ const CAUSE_META = {
   rate_limited: { label: "Rate limited", symbol: "⊗", className: "cause-rate-limited" }
 };
 
+const RECORD_STATUS_META = {
+  verified: { label: "Verified", className: "status-verified" },
+  needs_review: { label: "Needs review", className: "status-needs-review" },
+  disputed: { label: "Disputed", className: "status-disputed" }
+};
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -55,6 +61,9 @@ function matchesQuery(entry, query) {
     entry.company,
     entry.description,
     entry.eulogy,
+    entry.status_note,
+    entry.evidence?.summary,
+    entry.successor?.name,
     ...(entry.tags || [])
   ]
     .filter(Boolean)
@@ -108,6 +117,7 @@ function renderTags(entry, query) {
 
 function renderCard(entry, query) {
   const cause = CAUSE_META[entry.cause_of_death];
+  const recordStatus = RECORD_STATUS_META[entry.record_status] || RECORD_STATUS_META.verified;
   const company = entry.company || "Independent service";
 
   return `
@@ -117,10 +127,17 @@ function renderCard(entry, query) {
           <h3>${highlightText(entry.name, query)}</h3>
           <p class="grave-company">${highlightText(company, query)}</p>
         </div>
-        <span class="cause-badge ${cause.className}">
-          <span aria-hidden="true">${cause.symbol}</span>
-          <span>${cause.label}</span>
-        </span>
+        <div class="card-badge-stack">
+          ${
+            entry.record_status !== "verified"
+              ? `<span class="status-badge ${recordStatus.className}">${recordStatus.label}</span>`
+              : ""
+          }
+          <span class="cause-badge ${cause.className}">
+            <span aria-hidden="true">${cause.symbol}</span>
+            <span>${cause.label}</span>
+          </span>
+        </div>
       </div>
       <div class="dates-row">
         <span>Born: <time datetime="${escapeHtml(entry.date_born || entry.date_died)}">${escapeHtml(entry.date_born || "Unknown")}</time></span>
@@ -128,6 +145,7 @@ function renderCard(entry, query) {
       </div>
       ${renderTags(entry, query)}
       <p class="grave-eulogy">${highlightText(entry.eulogy, query)}</p>
+      ${entry.status_note ? `<p class="status-note">${highlightText(entry.status_note, query)}</p>` : ""}
       ${entry.description ? `<p class="grave-company">${highlightText(entry.description, query)}</p>` : ""}
       ${renderAlternatives(entry)}
       <a class="read-more" href="entry/${escapeHtml(entry.id)}/">→ Read more</a>
@@ -156,12 +174,45 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const entries = JSON.parse(dataNode.textContent);
-  const state = {
-    cause: "all",
-    category: "all",
-    query: "",
-    sort: "newest"
-  };
+  const state = readStateFromUrl();
+
+  function readStateFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const cause = params.get("cause") || "all";
+    const category = params.get("category") || "all";
+    const query = params.get("q") || "";
+    const sort = params.get("sort") || "newest";
+
+    return { cause, category, query, sort };
+  }
+
+  function writeStateToUrl() {
+    const params = new URLSearchParams();
+    if (state.cause !== "all") params.set("cause", state.cause);
+    if (state.category !== "all") params.set("category", state.category);
+    if (state.query) params.set("q", state.query);
+    if (state.sort !== "newest") params.set("sort", state.sort);
+
+    const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ""}`;
+    window.history.replaceState(null, "", next);
+  }
+
+  function syncControls() {
+    searchInput.value = state.query;
+    sortSelect.value = state.sort;
+
+    document.querySelectorAll("[data-filter-cause]").forEach((chip) => {
+      const active = chip.getAttribute("data-filter-cause") === state.cause;
+      chip.classList.toggle("is-active", active);
+      chip.setAttribute("aria-pressed", String(active));
+    });
+
+    document.querySelectorAll("[data-filter-category]").forEach((chip) => {
+      const active = chip.getAttribute("data-filter-category") === state.category;
+      chip.classList.toggle("is-active", active);
+      chip.setAttribute("aria-pressed", String(active));
+    });
+  }
 
   function applySort(items) {
     const clone = [...items];
@@ -191,6 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.innerHTML = filtered.map((entry) => renderCard(entry, state.query.trim())).join("");
     summary.textContent = `Showing ${filtered.length} of ${entries.length} entries.`;
     emptyState.hidden = filtered.length !== 0;
+    writeStateToUrl();
   }
 
   const handleSearch = debounce((event) => {
@@ -228,5 +280,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  window.addEventListener("popstate", () => {
+    const nextState = readStateFromUrl();
+    state.cause = nextState.cause;
+    state.category = nextState.category;
+    state.query = nextState.query;
+    state.sort = nextState.sort;
+    syncControls();
+    render();
+  });
+
+  syncControls();
   render();
 });
